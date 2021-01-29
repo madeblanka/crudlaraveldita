@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Validator;
 use Hash;
 use Session;
-use App\User;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -16,7 +16,7 @@ class AuthController extends Controller
     {
         if (Auth::check()) { // true sekalian session field di users nanti bisa dipanggil via Auth
             //Login Success
-            return redirect()->route('home');
+            return redirect()->route('biodata.index');
         }
         return view('login');
     }
@@ -50,7 +50,7 @@ class AuthController extends Controller
  
         if (Auth::check()) { // true sekalian session field di users nanti bisa dipanggil via Auth
             //Login Success
-            return redirect()->route('biodata');
+            return redirect()->route('biodata.index');
  
         } else { // false
  
