@@ -4,10 +4,11 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Belajar CRUD di Laravel 7</h2>
+                <h2>Belajar CRUD di Laravel 8</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('biodata.create') }}"> Input Data</a>
+                <a class="btn btn-danger" href="{{ route('logout') }}"> Logout</a>
             </div>
         </div>
     </div>
@@ -31,15 +32,15 @@
             <td>{{ $bio->nama }}</td>
             <td>{{ $bio->alamat }}</td>
             <td>
-                <form action="{{ route('biodata.destroy',$bio->id) }}" method="POST">
+                <form action="{{ route('biodata.destroy', $bio->id) }}" method="POST">
    
-                    <a class="btn btn-info" href="{{ route('biodata.show',$bio->id) }}">Tampil</a>
+                    <a class="btn btn-info" href="{{ route('biodata.show', $bio) }}">Tampil</a>
     
-                    <a class="btn btn-primary" href="{{ route('biodata.edit',$bio->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('biodata.edit', $bio->id) }}">Edit</a>
    
                     @csrf
                     @method('DELETE')
-      
+    
                     <button type="submit" class="btn btn-danger">Hapus</button>
                 </form>
             </td>
