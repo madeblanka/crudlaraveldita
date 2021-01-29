@@ -50,8 +50,10 @@ class BiodataController extends Controller
      * @param  \App\Models\Biodata  $biodata
      * @return \Illuminate\Http\Response
      */
-    public function show(Biodata $biodata)
+    public function show($id)
     {
+        $biodata = Biodata::find($id);
+
         return view('biodata.show',compact('biodata'));
     }
 
@@ -61,8 +63,10 @@ class BiodataController extends Controller
      * @param  \App\Models\Biodata  $biodata
      * @return \Illuminate\Http\Response
      */
-    public function edit(Biodata $biodata)
+    public function edit($id)
     {
+        $biodata = Biodata::find($id);
+        
         return view('biodata.edit',compact('biodata'));
     }
 
@@ -89,9 +93,11 @@ class BiodataController extends Controller
      * @param  \App\Models\Biodata  $biodata
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Biodata $biodata)
+    public function destroy($id)
     {
+        $biodata = Biodata::find($id);
         $biodata->delete();
+
         return redirect()->route('biodata.index')->with('success','Biodata berhasil dihapus');
     }
 }
